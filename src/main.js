@@ -16,7 +16,10 @@ registerMicroApps([
         name: 'comp1',
         entry,
         activeRule: '/comp1',
-        container: '#sub-container'
+        container: '#sub-container',
+        props: {
+            superRouter: router
+        }
     }
 ])
 

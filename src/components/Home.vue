@@ -9,7 +9,10 @@
 
 <script>
 export default {
-    name: 'Home'
+    name: 'Home',
+    created () {
+        console.log('state', window.history.state)
+    }
 }
 </script>
 
