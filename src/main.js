@@ -9,10 +9,12 @@ import { registerMicroApps, start } from 'qiankun'
 Vue.use(VueRouter)
 Vue.use(ElementUI)
 
+const entry = process.env.NODE_ENV === 'development' ? 'http://localhost:33901' : 'http://124.221.44.7:33901'
+
 registerMicroApps([
     {
         name: 'comp1',
-        entry: 'http://localhost:33901',
+        entry,
         activeRule: '/comp1',
         container: '#sub-container'
     }
