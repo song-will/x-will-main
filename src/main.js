@@ -9,13 +9,25 @@ import { registerMicroApps, start } from 'qiankun'
 Vue.use(VueRouter)
 Vue.use(ElementUI)
 
-const entry = process.env.NODE_ENV === 'development' ? 'http://localhost:33901' : 'http://124.221.44.7:33901'
+
+const createEntry = (port = 33901) => {
+    return process.env.NODE_ENV === 'development' ? `http://localhost:${port}` : `http://124.221.44.7:${port}`
+}
 
 registerMicroApps([
     {
         name: 'comp1',
-        entry,
+        entry: createEntry(33901),
         activeRule: '/comp1',
+        container: '#sub-container',
+        props: {
+            superRouter: router
+        }
+    },
+    {
+        name: 'comp2',
+        entry: createEntry(33902),
+        activeRule: '/comp2',
         container: '#sub-container',
         props: {
             superRouter: router
