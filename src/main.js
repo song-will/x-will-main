@@ -10,8 +10,8 @@ Vue.use(VueRouter)
 Vue.use(ElementUI)
 
 
-const createEntry = (port = 33901) => {
-    return process.env.NODE_ENV === 'development' ? `http://localhost:${port}` : `http://124.221.44.7:${port}`
+const createEntry = (port = 33901, ip = '124.221.44.7') => {
+    return process.env.NODE_ENV === 'development' ? `http://localhost:${port}` : `http://${ip}:${port}`
 }
 
 registerMicroApps([
