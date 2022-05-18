@@ -1,12 +1,19 @@
 <template>
     <div>
         About
+        <img :src="lyf" alt="">
     </div>
 </template>
 
 <script>
+import lyf from '@/assets/images/lyf_1.jpg'
 export default {
-    naem: 'About'
+    name: 'About',
+    data () {
+        return {
+            lyf
+        }
+    }
 }
 </script>
 
