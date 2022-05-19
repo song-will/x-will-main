@@ -1,36 +1,80 @@
 <template>
-  <div>
-    app
-    <ul>
-      <li>
-        <router-link to="/">首页</router-link>
-      </li>
-      <li>
-        <router-link to="/about">关于</router-link>
-      </li>
-      <li>
-        <router-link to="/comp1/about">child-vue2-about</router-link>
-      </li>
-      <li>
-        <router-link to="/comp1/">child-vue2-home</router-link>
-      </li>
-      <li>
-        <router-link to="/comp2/about">child-vue3-about</router-link>
-      </li>
-      <li>
-        <router-link to="/comp2/">child-vue3-home</router-link>
-      </li>
-    </ul>
-    <div id="sub-container"></div>
-    <router-view></router-view>
-  </div>
+  <el-container class="wrapper">
+    <el-header>header</el-header>
+    <el-container>
+      <el-aside :width="`${asideWidth}px`">
+        <el-menu
+          background-color="#545c64"
+          text-color="#fff"
+          active-text-color="#ffd04b"
+          router
+          :default-active="$route.path"
+          unique-opened
+          collapse-transition
+        >
+          <el-menu-item index="/">
+            <template slot="title">
+              <i class="el-icon-location"></i>
+              <span slot="title">首页</span>
+            </template>
+          </el-menu-item>
+          <el-menu-item index="/about">
+            <template slot="title">
+              <i class="el-icon-location"></i>
+              <span slot="title">其他</span>
+            </template>
+          </el-menu-item>
+          <el-menu-item index="/comp1">
+            <template slot="title">
+              <i class="el-icon-location"></i>
+              <span slot="title">comp1首页</span>
+            </template>
+          </el-menu-item>
+          <el-menu-item index="/comp1/about">
+            <template slot="title">
+              <i class="el-icon-location"></i>
+              <span slot="title">comp1其他</span>
+            </template>
+          </el-menu-item>
+          <el-menu-item index="/comp2/">
+            <template slot="title">
+              <i class="el-icon-location"></i>
+              <span slot="title">comp2首页</span>
+            </template>
+          </el-menu-item>
+          <el-menu-item index="/comp2/about">
+            <template slot="title">
+              <i class="el-icon-location"></i>
+              <span slot="title">comp2其他</span>
+            </template>
+          </el-menu-item>
+        </el-menu>
+      </el-aside>
+      <el-main>
+        <router-view></router-view>
+        <div id="sub-container"></div>
+      </el-main>
+    </el-container>
+  </el-container>
 </template>
 
 <script>
 export default {
   name: "App",
+  data() {
+    return {
+      asideWidth: 200,
+    };
+  },
 };
 </script>
 
-<style>
+<style lang="less" scoped>
+.wrapper {
+  height: 100%;
+  /deep/ .el-menu {
+    height: 100%;
+  }
+}
 </style>
+

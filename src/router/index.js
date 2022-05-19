@@ -20,9 +20,9 @@ const router = new VueRouter({
     base: '/'
 })
 
-router.beforeEach((to, from, next) => {
-    console.log(to, from)
-    next()
-})
+// router.beforeEach((to, from, next) => {
+//     console.log(to, from)
+//     next()
+// })
 
 export default router

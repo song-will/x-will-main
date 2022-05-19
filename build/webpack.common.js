@@ -65,7 +65,6 @@ module.exports = {
         new CleanWebpackPlugin(),
         // 生成新的html文件
         new HtmlWebpackPlugin({
-            title: 'webpack',
             template: resolve('index.html')
         }),
         new VueLoaderPlugin()

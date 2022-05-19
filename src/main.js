@@ -5,6 +5,7 @@ import router from '@/router/index'
 import 'element-ui/lib/theme-chalk/index.css'
 import ElementUI from 'element-ui'
 import { registerMicroApps, start } from 'qiankun'
+import '@/common.less'
  
 Vue.use(VueRouter)
 Vue.use(ElementUI)
