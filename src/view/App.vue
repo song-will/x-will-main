@@ -48,6 +48,12 @@
               <span slot="title">comp2其他</span>
             </template>
           </el-menu-item>
+          <el-menu-item index="/comp2/component-test">
+            <template slot="title">
+              <i class="el-icon-location"></i>
+              <span slot="title">组件</span>
+            </template>
+          </el-menu-item>
         </el-menu>
       </el-aside>
       <el-main>
