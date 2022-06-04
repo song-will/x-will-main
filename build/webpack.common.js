@@ -56,6 +56,13 @@ module.exports = {
         ]
     },
     plugins: [
+        new webpack.container.ModuleFederationPlugin({
+            name: 'app_expose',
+            filename: 'remoteEntry.js',
+            exposes: {
+                "./TestMain.vue": "./src/components/TestMain.vue"
+            }
+        }),
         new webpack.DefinePlugin({
             'process.env': {
               NODE_ENV: JSON.stringify(process.env.NODE_ENV || 'production'),
