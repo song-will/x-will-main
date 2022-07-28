@@ -55,12 +55,16 @@ module.exports = {
             }
         ]
     },
+    experiments: { topLevelAwait: true },
     plugins: [
         new webpack.container.ModuleFederationPlugin({
             name: 'app_expose',
             filename: 'remoteEntry.js',
             exposes: {
                 "./TestMain.vue": "./src/components/TestMain.vue"
+            },
+            remotes: {
+                app_comp1_expose: 'app_comp1_expose@http://localhost:33901/remoteEntry.js'
             }
         }),
         new webpack.DefinePlugin({
